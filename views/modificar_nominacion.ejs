@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modicar Nominacion</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="body bg-principal" >
+    <header>
+        <h1>Modificar Nominacion</h1>
+    </header>
+
+    <main class="bg-blur">
+        <h2>Buscar Gala</h2>
+
+        <form class="form" action="/modificar_nominacion">
+            <fieldset class="campo">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" required placeholder="Los Oscars" autofocus>
+            </fieldset>
+            
+            <fieldset class="campo">
+                <label for="anio_realizacion">Año de la Gala</label>
+                <input type="number" name="anio_realizacion" id="anio_realizacion" required placeholder="2020">
+            </fieldset>
+
+            <input class="btn-submit" type="submit" value="Buscar">
+
+            <% if (errors.status && errors.place === "modificar_nominacion") { %>
+                <p class="error-message"><%=errors.message%></p>
+            <% } %>
+        
+        </form>
+
+        <% if(gala) { %>
+           <div class="info">
+                <p>Descripcion: <%=gala.nombre%></p>
+                <p>Fecha: <%=gala.anio_realizacion%></p>
+                <img src="./../img/<%=gala.nombre%>.jpg" alt="<%=gala.nombre%>">
+           </div>
+            
+            <form class="form" action="/modificar_nominacion2">
+                <fieldset class="campo">
+                    <label for="categoria">Categoria</label>
+                    <input type="text" name="categoria" id="categoria" placeholder="Mejor Pelicula">
+                </fieldset>
+
+                <fieldset class="campo">
+                    <label for="pelicula">Pelicula</label>
+                    <input type="text" name="pelicula" id="pelicula" placeholder="The Shape of Water">
+                </fieldset>
+
+                <fieldset class="campo">
+                    <label for="ganador">Ganador</label>
+                    <input type="text" name="ganador" id="ganador" placeholder="Guillermo del Toro">
+                </fieldset>
+
+                <input class="btn-submit" type="submit" name="submit" id="submit" value="Modificar">
+                <input type="hidden" name="id_gala" value="<%=gala.id_gala%>">
+
+
+
+
+            </form>
+        <% } %>
+
+        <a class="link-home" href="\home">Home</a>
+    </main>
+
+    <script src="/js/error-message.js"></script>
+</body>
+</html>

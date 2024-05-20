@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos Tribunal</title>
+    º<link rel="stylesheet" href="./../css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Agregar Tribunal</h1>
+    </header>
+
+    <main class="bg-blur">
+        <form action="/insertar_tribunal" method="get">
+            <h3>Gala</h3>
+            <fieldset class="campo">
+                <label for="nombre_gala">Nombre</label>
+                <input type="text" name="nombre_gala" id="nombre_gala" required placeholder="Los Oscars" >
+            </fieldset>
+
+            <fieldset class="campo">
+                <label for="gala_anio">Año de Realizacion</label>
+                <input type="number" name="gala_anio" id="gala_anio" required placeholder="2021">
+            </fieldset>
+
+            <h3>Participante</h3>
+            <fieldset class="campo">
+                <label for="participante_nombre">Nombre</label>
+                <input type="text" name="participante_nombre" id="participante_nombre" required placeholder="Brad Pitt">
+            </fieldset>
+
+            <fieldset class="campo">
+                <label for="rol">Rol</label>
+                <input type="text" name="rol" id="rol" required  placeholder="Presentador">
+            </fieldset>
+            
+            
+
+            <input class="btn-submit" type="submit" value="Agregar Tribunal">
+        </form>
+
+        <% if (errors.status && errors.place === "datos_tribunal") { %>
+            <p class="error-message"><%=errors.message%></p>
+        <% } %>
+        <a class="link-home" href="\home">Home</a>
+    </main>
+
+    <script src="../js/error-message.js"></script>
+</body>
+</html>

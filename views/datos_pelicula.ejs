@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertar Pelicula</title>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Insertar Pelicula</h1>
+    </header>
+
+    <main class="menu bg-blur">
+        <form class="form" action="/insertar_pelicula" method="GET">
+            <fieldset class="campo">
+                <label for="titulo_original">Titulo Original: </label>
+                <input type="text" name="to" id="titulo_original" required placeholder="Ej: The Avengers" >
+            </fieldset>
+            <fieldset class="campo">
+                <label for="titulo_traducido">Titulo Traducido</label>
+                <input type="text" name="tt" id="titulo_traducido" required placeholder="EJ: Los vengadores">
+            </fieldset>
+            <fieldset class="campo">
+                <label for="fecha_estreno">Fecha De Estreno</label>
+                <input type="date" name="fe" id="fecha_estreno" required>
+            </fieldset>
+            <fieldset class="campo">
+                <label for="lugar_estreno">Lugar De Estreno</label>
+                <input type="text" name="le" id="lugar_estreno" required placeholder="Estados Unidos">
+            </fieldset>
+            <fieldset class="campo">
+                <label for="recaudacion">Recaudacion total: </label>
+                <input type="number" name="rt" id="recaudacion" required placeholder="2000">
+            </fieldset>
+            <fieldset class="campo">
+                <label for="categoria">Categoria: </label>
+                <input type="text" name="c" id="categoria" required placeholder="Accion/Comedia">
+            </fieldset>
+            <fieldset class="campo">
+                <label for="idioma">Idioma Original: </label>
+                <input type="text" name="io" id="idioma" required placeholder="Ingles">
+            </fieldset>
+            <fieldset class="campo">
+                <label for="imagen">Url de la imagen: </label>
+                <input type="text" name="img" id="imagen" required placeholder="https://www.imagen.com">
+            </fieldset>
+            <fieldset class="campo">
+                <label for="clasificacion">Clasificacion: </label>
+                <input type="text" name="cla" id="clasificacion" required placeholder="PG-13">
+            </fieldset>
+            <fieldset class="campo">
+                <label for="rank">Rank: </label>
+                <input type="text" name="r" id="rank" required placeholder="9.5">
+            </fieldset>
+            <fieldset class="campo">
+                <label for="clasificacion">Descripcion: </label>
+                <textarea name="d" id="clasificacion" required placeholder="Descripcion de la pelicula"></textarea>
+            </fieldset>
+
+            <% if (errors.status && errors.place === "datos_pelicula") { %>
+                <p class="error-message"><%= errors.message %></p>
+            <% } %>
+
+            <input class="btn-submit" type="submit" name="s" id="input_pelicula" value="Agregar">
+        </form>
+
+
+
+        <a class="link-home" href="/home">home</a>
+
+
+    </main>
+
+    <script src="./../js/error-message.js"></script>
+</body>
+</html>

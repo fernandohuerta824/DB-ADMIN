@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Participacion</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Eliminar Participante</h1>
+    </header>
+
+    <main class="bg-blur">
+        <form class="form" action="/eliminar_participante">
+
+            <fieldset class="campo">
+                <label for="nombre">Nombre del participante</label>
+                <input type="text" name="nombre" id="nombre" required placeholder="Al Pacino">
+            </fieldset>
+
+            <input class="btn-submit" type="submit" value="Buscar">
+        </form>
+
+        <% if (errors.status && errors.place === "eliminar_participante") { %>
+            <p class="error-message"><%=errors.message%></p>
+        <% } %>
+
+        <% if(participante) { %>
+            <div class="info">
+                <img src="<%=participante.image_url%>" alt="<%=participante.nombre_real%>">
+                <p>Nombre: <%=participante.nombre_real%></p>
+            </div>
+
+
+            <p>Eliminar Participante?</p>
+            <form action="/eliminar_participante2" method="get">
+                <input class="btn-submit" type="submit" value="Eliminar">
+                <input type="hidden" name="id_participante" value="<%=participante.id_participante%>">
+            </form>
+        <% } %>
+
+        
+        <a class="link-home" href="\home">Home</a>
+    </main>
+
+    <script src="/js/error-message.js"></script>
+</body>
+</html>

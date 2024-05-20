@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Pelicula</title>
+    <link rel="stylesheet" href="./../css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Modificar Pelicula</h1>
+    </header>
+
+    <main class="bg-blur">
+        <h2>Ingrese la pelicula a modificar</h2>
+
+        <form class="form" action="/modificar_pelicula">
+            <fieldset class="campo">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" required placeholder="The Avengers">
+            </fieldset>
+            
+            <input class="btn-submit" type="submit" value="Buscar">
+        </form>
+
+        <% if (movie) { %>
+                <div class="info">
+                    <h2><%=movie.titulo_original %></h2>
+                    <img src="<%=movie.image_url%>" alt="<%=movie.nombre%>">
+                </div>
+                
+
+                <!--Formulario para modificar la pelicula-->
+                <form class="form" action="/modificar_pelicula2" method="get">
+                    <fieldset class="campo">
+                        <label for="titulo_original">Titulo Original: </label>
+                        <input type="text" name="titulo_original" id="titulo_original" value="<%=movie.titulo_original%>">
+                    </fieldset>
+
+                    <fieldset class="campo">
+                        <label for="titulo_traducido">Titulo Traducido: </label>
+                        <input type="text" name="titulo_traducido" id="titulo_traducido" value="<%=movie.titulo_traducido%>">
+                    </fieldset>
+
+                    <fieldset class="campo">
+                        <label for="fecha_estreno">Fecha de Estreno: </label>
+                        <input type="date" name="fecha_estreno" id="fecha_estreno" value=<%=formatearFecha(movie.fecha_estreno)%>>
+                    </fieldset>
+
+                    <fieldset class="campo">
+                        <label for="idioma_original">Idioma Original: </label>
+                        <input type="text" name="idioma_original" id="idioma_original" value="<%=movie.idioma_original%>">
+                    </fieldset>
+
+                    <fieldset class="campo">
+                        <label for="lugar_estreno">Lugar de Estreno: </label>
+                        <input type="text" name="lugar_estreno" id="lugar_estreno" value="<%=movie.lugar_estreno%>">
+                    </fieldset>
+
+                    <fieldset class="campo">
+                        <label for="recaudacion_total">Recaudacion Total: </label>
+                        <input type="text" name="recaudacion_total" id="recaudacion_total" value="<%=movie.recaudacion_total%>">
+                    </fieldset>
+
+                    <fieldset class="campo">
+                        <label for="rank">Rank: </label>
+                        <input type="text" name="rank" id="rank" value="<%=movie.rank%>">
+                    </fieldset>
+
+                    <fieldset class="campo">
+                        <label for="categoria">Categoria: </label>
+                        <input type="text" name="categoria" id="categoria" value="<%=movie.categoria%>">
+                    </fieldset>
+
+                    <fieldset class="campo">
+                        <label for="clasificacion">Clasificacion: </label>
+                        <input type="text" name="clasificacion" id="clasificacion" value="<%=movie.clasificacion%>">
+                    </fieldset>
+
+                    <fieldset class="campo" >
+                        <label for="descripcion">Descripcion: </label>
+                        <textarea name="descripcion" id="descripcion" cols="30" rows="10"><%=movie.descripcion%></textarea>
+
+                    </fieldset>
+
+                    <fieldset class="campo">
+                        <label for="imagen_url">Imagen URL: </label>
+                        <input type="text" name="imagen_url" id="imagen_url" value="<%=movie.image_url%>">
+                    </fieldset>
+
+                    <input type="hidden" name="id_pelicula" value="<%=movie.id_pelicula%>">
+                    <input class="btn-submit" type="submit" value="Modificar">
+                    
+                    
+
+                </form>
+
+        <% } %>
+
+        <% if (errors.status && errors.place === "modificar_pelicula") { %>
+            <p class="error-message"><%=errors.message%></p>
+        <% } %>
+        
+
+        <a class="link-home" href="\home">Home</a>
+    </main>
+
+    <script src="../js/error-message.js"></script>
+</body>
+</html>

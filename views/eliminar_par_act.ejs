@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar particpacion actor</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Eliminar participacion actor</h1>
+    </header>
+
+    <main class="bg-blur">
+        <h2>Ingresa la pelicula</h2>
+        <form action="/eliminar_par_act">
+
+            <fieldset class="campo">
+                <label for="nombre">Nombre de la pelicula</label>
+                <input type="text" name="nombre" id="nombre" required placeholder="Pulp Fiction">
+            </fieldset>
+            <input class="btn-submit" type="submit" value="Buscar">
+
+        </form>
+
+        <% if (errors.status && errors.place === "eliminar_par_act") { %>
+            <p class="error-message"><%=errors.message%></p>
+        <% } %>
+
+        <% if (pelicula) { %>
+            <div class="info">
+                <img src="<%=pelicula.image_url%>" alt="<%=pelicula.titulo_original%>">
+                <p>Titulo: <%=pelicula.titulo_original%></p>    
+            </div>
+
+            <h2>Ingrese el director</h2>
+            <form action="/eliminar_par_act2" method="get">
+                <fieldset class="campo">
+                    <label for="">Nombre del actor</label>
+                    <input type="text" name="nombre" id="nombre" required placeholder="John Travolta">
+                </fieldset>
+  
+                <input class="btn-submit" type="submit" value="Buscar">
+                <input type="hidden" name="id_pelicula" value="<%=pelicula.id_pelicula%>">
+            </form>
+
+        <% } %>
+
+        <a class="link-home" href="\home">Home</a>
+    </main>
+
+
+    <script src="/js/error-message.js"></script>
+</body>
+</html>

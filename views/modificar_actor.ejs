@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Actor</title>
+    <link rel="stylesheet" href="./../css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Modificar Actor</h1>
+    </header>
+
+    <main class="bg-blur">
+        <h2>Ingrese el actor a modificar</h2>
+
+        <form class="form" action="/modificar_actor">
+            <fieldset class="campo">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" required>
+            </fieldset>
+
+            <input class="btn-submit" type="submit" value="Buscar">
+
+            <% if (errors.status && errors.place === "modificar_actor") { %>
+                <p class="error-message"><%=errors.message%></p>
+            <% } %>
+        </form>
+
+        <% if(actor) { %>
+            <div class="info">
+                <img src="<%=actor.image_url%>" alt="<%=actor.nombre_actor%>">
+            </div>
+            
+
+            <form class="form" action="/modificar_actor2">
+                <fieldset class="campo">
+                    <label for="anio_debut">Año de debut</label>
+                    <input type="text" name="anio_debut" id="anio_debut" value="<%=actor.anio_debut%>">
+                </fieldset>
+
+                <fieldset class="campo">
+                    <label for="nacionalidad">Nacionalidad</label>
+                    <input type="text" name="nacionalidad" id="nacionalidad" value="<%=actor.nacionalidad%>">
+                </fieldset>
+                
+                
+                <input class="btn-submit" type="submit" name="submit" id="submit" value="Modificar">
+
+                <input type="hidden" name="id_actor" value="<%=actor.id_actor%>">
+            </form>
+        <% } %>
+
+        <a class="link-home" href="\home">Home</a>
+
+    </main>
+
+    <script src="./../js/error-message.js"></script>
+</body>
+</html>

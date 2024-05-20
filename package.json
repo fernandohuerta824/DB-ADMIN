@@ -1,0 +1,22 @@
+{
+  "name": "db-admin",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon js/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ejs": "^3.1.10",
+    "ejs-lint": "^2.0.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0",
+    "pg": "^8.11.5"
+  }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Modificar Director</h1>
+    </header>
+
+    <main class="bg-blur">
+        <form class="form" action="/modificar_dir" method="get">
+            <fieldset class="campo">
+                <label for="nombre">Nombre del director</label>
+                <input type="text" name="nombre" id="nombre" required placeholder="Martin Scorsese" autofocus>
+            </fieldset>
+
+            <input class="btn-submit" type="submit" value="Buscar">
+
+
+        </form>
+
+        <% if (errors.status && errors.place === "modificar_dir") { %>
+            <p class="error-message"><%=errors.message%></p>
+        <% } %>
+
+
+        <% if(director) { %>
+            <div class="info">
+                <img src="<%=director.image_url%>" alt="<%=director.nombre%>">
+                <p><span style="font-weight: 700;">Nombre:</span> <%=director.nombre%></p>
+            </div>
+            
+            
+            <form class="form" action="modificar_dir2">
+                <fieldset class="campo">
+                    <label for="anio_debut">Año de debut</label>
+                    <input type="text" name="anio_debut" id="anio_debut" value="<%=director.anio_debut%>">
+                </fieldset>
+
+                <fieldset class="campo">
+                    <label for="nacionalidad">Nacionalidad</label>
+                    <input type="text" name="nacionalidad" id="nacionalidad" value="<%=director.nacionalidad%>">
+                </fieldset>
+
+
+                <input class="btn-submit" type="submit" name="submit" id="submit" value="Modificar">
+
+                <input type="hidden" name="id_director" value="<%=director.id_director%>">
+
+            </form>
+        <% } %>
+
+        <a class="link-home" href="\home">Home</a>
+    </main>
+
+    <script src="/js/error-message.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Participacion de un Director</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Modificar Participacion de un Director</h1>
+    </header>
+
+    <main class="bg-blur">
+
+        <form class="form" action="modificar_par_dir">
+            <fieldset class="campo">
+                <label for="pelicula">Pelicula</label>
+                <input type="text" name="pelicula" id="pelicula" required>
+            </fieldset>
+            <fieldset class="campo">
+                <label for="nombre">Nombre del director</label>
+                <input type="text" name="nombre" id="nombre" required>
+            </fieldset>
+
+            <input class="btn-submit" type="submit" value="Buscar">
+        </form>
+
+        <% if(participacion_director) { %>
+            <div class="info">
+                <p><span style="font-weight: 700;">Nombre del Director:</span> <%=director.nombre%></p>
+                <img src="<%=director.image_url%>" alt="<%=director.titulo_original%>">
+                <p><span style="font-weight: 700;">Nombre de la Pelicula:</span> <%=pelicula.titulo_original%></p>
+                <img src="<%=pelicula.image_url%>" alt="<%=pelicula.nombre_real%>">
+            </div>
+            
+
+            <form class="form" action="modificar_par_dir2">
+                <fieldset class="campo">
+                    <label for="pelicula">Pelicula</label>
+                    <input type="text" name="pelicula" id="pelicula" value="<%=pelicula.titulo_original%>">
+                </fieldset>
+
+                <input class="btn-submit" type="submit" name="submit" id="submit" value="Modificar">
+                <input type="hidden" name="id_participacion_director" value="<%=participacion_director.id_participacion_actor%>">
+                <input type="hidden" name="id_director" id="id_director" value="<%=director.id_director%>">
+            </form>
+        <% } %>
+
+        <% if (errors.status && errors.place === "modificar_par_dir") { %>
+            <p class="error-message"><%=errors.message%></p>
+        <% } %>
+
+        <a class="link-home" href="/home">Home</a>
+    </main>
+
+    <script src="./../js/error-message.js"></script>
+</body>
+</html>

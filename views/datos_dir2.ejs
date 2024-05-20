@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos Director</title>
+    <link rel="stylesheet" href="./../css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Agregar Director</h1>
+    </header>
+
+    <main class="bg-blur">
+        <div class="info">
+            <h2><%=par.nombre_real%></h2>
+            <img src="<%=par.image_url%>" alt="<%=par.nombre_real%>">
+        </div>
+
+        <form class="form" action="/insertar_dir">
+            <fieldset class="campo">
+                <label for="anio_debut">Año del Debut</label>
+                <input type="number" name="anio_debut" id="anio_debut" required>
+            </fieldset>
+            <fieldset class="campo">
+                <label for="pais">Nacionalidad</label>
+                <input type="text" name="pais" id="pais" required>
+            </fieldset>
+            <input class="btn-submit" type="submit" value="Agregar Director">
+            <input type="hidden" name="image_url" value="<%=par.image_url%>">
+            <input type="hidden" name="nombre_real" value="<%=par.nombre_real%>">
+            <input type="hidden" name="id_participante" value="<%=par.id_participante%>">
+            <input type="hidden" name="fecha_nacimiento" value="<%=par. fecha_nacimiento%>">
+        </form>
+
+        <a class="link-home" href="\home">Home</a>
+    </main>
+
+    
+</body>
+</html>

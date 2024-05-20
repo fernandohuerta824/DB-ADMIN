@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Actor</title>
+    <link rel="stylesheet" href="/css/app.css">
+    
+<body class="body bg-principal">
+    <header>
+        <h1>Eliminar Director</h1>
+    </header>
+
+    <main class="bg-blur">
+        <form action="/eliminar_dir">
+
+            <fieldset class="campo">
+                <label for="nombre">Nombre del director</label>
+                <input type="text" name="nombre" id="nombre" required placeholder="Quentin Tarantino">
+            </fieldset>
+            <input class="btn-submit" type="submit" value="Buscar">
+
+        </form>
+
+        <% if (errors.status && errors.place === "eliminar_dir") { %>
+            <p class="error-message"><%=errors.message%></p>
+        <% } %>
+
+        <% if(director) { %>
+            <div class="info">
+                <img src="<%=director.image_url%>" alt="<%=director.nombre%>">
+                <p>Nombre: <%=director.nombre%></p>
+            </div>
+
+
+            <p>Eliminar director?</p>
+            <form action="/eliminar_dir2" method="get">
+                <input class="btn-submit" type="submit" value="Eliminar">
+                <input type="hidden" name="id_director" value="<%=director.id_director%>">
+                
+            </form>
+        <% } %>
+
+        
+
+        <a class="link-home" href="\home">Home</a>
+
+    </main>
+
+    <script src="/js/error-message.js"></script>
+</body>
+</html>

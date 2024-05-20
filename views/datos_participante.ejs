@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos Particpante</title>
+    <link rel="stylesheet" href="./../css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Insertar Participante</h1>
+    </header>
+
+    <main class="menu bg-blur">
+
+        <!-- 
+            nombre_artistico
+            nombre_real
+            fecha_nacimiento
+            estado
+            sexo
+            imagen_url
+
+         -->
+        <form class="form" action="/insertar_participante" method="get">
+            <fieldset class="campo">
+                <label for="nombre_artistico">Nombre_artistico</label>
+                <input type="text" name="nombre_artistico" id="nombre_artistico" required placeholder="Bruce Willis">
+            </fieldset>
+
+            <fieldset class="campo">
+                <label for="nombre_real">Nombre Real</label>
+                <input type="text" name="nombre_real" id="nombre_real" required placeholder="Walter Bruce Willis">
+            </fieldset>
+
+            <fieldset class="campo">
+                <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" required>
+            </fieldset>
+
+            <fieldset class="campo">
+                <label for="estado">Estado</label>
+                <input type="text" name="estado" id="estado" required placeholder="Activo">
+            </fieldset>
+
+            <fieldset class="campo">
+                <label for="sexo">Sexo</label>
+                <input type="text" name="sexo" id="sexo" required placeholder="Masculino">
+            </fieldset>
+
+            <fieldset class="campo">
+                <label for="imagen_url">Imagen</label>
+                <input type="text" name="imagen_url" id="imagen_url" required placeholder="https://www.imagen.com">
+            </fieldset>
+
+            <input class="btn-submit" type="submit" value="Insertar Participante">
+
+            <% if (errors.status && errors.place === "datos_participante") { %>
+                <p class="error-message"><%=errors.message%></p>
+            <% } %>
+        </form>
+
+        <a class="link-home" href="\home">Home</a>
+    </main>
+
+
+    <script src="./../js/error-message.js"></script>
+</body>
+</html>

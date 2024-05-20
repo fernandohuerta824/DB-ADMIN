@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar participacion de un director</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Eliminar participacion de un director</h1>
+    </header>
+
+    <main class="bg-blur">
+        <% if(director) { %>
+            <div class="info">
+                <img src="<%=pelicula.image_url%>" alt="<%=pelicula.titulo_original%>">
+                <p>Titulo: <%=pelicula.titulo_original%></p>
+
+                <img src="<%=director.image_url%>" alt="<%=director.nombrer%>">
+                <p>Nombre: <%=director.nombrer%></p>
+            </div>
+
+
+
+
+            <p>Eliminar participacion?</p>
+
+            <form action="/eliminar_par_dir3" method="get">
+                <input class="btn-submit" type="submit" value="Eliminar">
+                <input type="hidden" name="id_participacion_director" value="<%=participacion.id_participacion_actor%>">
+                <input type="hidden" name="id_pelicula" value="<%=pelicula.id_pelicula%>">
+                <input type="hidden" name="id_participante" value="<%=id_participante%>">
+            </form>
+        <% } else { %>
+            <p class="error-message">El director no existe</p>
+        <% } %>
+
+        <a href="\eliminar_par_dir">Regresar</a>
+
+    </main>
+</body>
+</html>

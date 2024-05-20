@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Gala</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Modificar Gala</h1>
+    </header>
+
+    <main class="bg-blur">
+        <h2>Ingrese la actor a modificar</h2>
+
+        <form class="form" action="/modificar_gala">
+            <fieldset class="campo">
+                <label for="nombre">Nombre de la Gala</label>
+                <input type="text" name="nombre" id="nombre" required>
+            </fieldset>
+
+            <fieldset class="campo">
+                <label for="anio_realizacion">Año de la Gala</label>
+                <input type="number" name="anio_realizacion" id="anio_realizacion" required>
+            </fieldset>
+
+            <input class="btn-submit" type="submit" value="Buscar">
+
+        </form>
+
+        <% if (errors.status && errors.place === "modificar_gala") { %>
+            <p class="error-message"><%=errors.message%></p>
+        <% } %>
+
+        <% if(gala) { %>
+            <div class="info">
+                <p>Descripcion: <%=gala.nombre%></p>
+                <p>Fecha: <%=gala.anio_realizacion%></p>
+                <img src="./../img/<%=gala.nombre%>.jpg" alt="<%=gala.nombre%>">
+            </div>
+            
+
+            <form action="/modificar_gala2">
+                <fieldset class="campo">
+                    <label for="fecha">Fecha</label>
+                    <input type="text" name="fecha" id="fecha" value="<%=gala.anio_realizacion%>">
+                </fieldset>
+                
+                <fieldset class="campo">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" value="<%=gala.nombre%>">
+                </fieldset>
+     
+                <fieldset class="campo">
+                    <label for="organizador">Organizador</label>
+                    <input type="text" name="organizador" id="organizador" value="<%=gala.organizador%>">
+                </fieldset>
+
+                <fieldset class="campo">
+                    <label for="categoria">Categoria</label>
+                    <input type="text" name="categoria" id="categoria" value="<%=gala.categoria%>">
+                </fieldset>
+
+                <fieldset class="campo">
+                    <label for="lugar">Lugar</label>
+                    <input type="text" name="lugar" id="lugar" value="<%=gala.lugar%>">
+                </fieldset>
+
+                <input class="btn-submit" type="submit" name="submit" id="submit" value="Modificar">
+
+                <input type="hidden" name="id_gala" value="<%=gala.id_gala%>">
+            </form>
+        <% } %>
+
+
+
+        <a class="link-home" href="/home">Home</a>
+    </main>
+
+    <script src="/js/error-message.js"></script>
+</body>
+</html>

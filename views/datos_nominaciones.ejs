@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos nominaciones</title>
+    <link rel="stylesheet" href="./../css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Agregar Nominaciones</h1>
+    </header>
+
+    <main class="bg-blur">
+        <h2>Datos de la gala</h2>
+        <form class="form" action="/datos_nominaciones2">
+            <fieldset class="campo">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" required placeholder="Los Oscars">         
+            </fieldset>
+
+            <fieldset class="campo">
+                <label for="anio">Año de Realizacion</label>
+                <input type="number" name="anio" id="anio" required placeholder="2021">
+            </fieldset>
+            <input class="btn-submit" type="submit" value="Buscar">
+
+            <% if (errors.status && errors.place === "datos_nominaciones") { %>
+                <p class="error-message"><%=errors.message%></p>
+            <% } %>
+        </form>
+
+        <a class="link-home" href="\home">Home</a>
+    </main>
+
+    <script src="../js/error-message.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Pelicula</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Eliminar Pelicula</h1>
+    </header>
+
+    <main class="bg-blur">
+        <form class="form" action="/eliminar_pelicula">
+            <fieldset class="campo">
+                <label for="nombre">Nombre de la pelicula</label>
+                <input type="text" name="nombre" id="nombre" required placeholder="The Godfather">
+            </fieldset>
+
+            <input class="btn-submit btn-submit-eliminar" type="submit" value="Buscar">
+        </form>
+
+        <% if (errors.status && errors.place === "eliminar_pelicula") { %>
+            <p class="error-message"><%=errors.message%></p>
+        <% } %>
+
+        <% if(pelicula) { %>
+            <div class="info">
+                <img src="<%=pelicula.image_url%>" alt="<%=pelicula.titulo_original%>">
+                <p>Nombre: <%=pelicula.titulo_original%></p>
+            </div>
+
+
+            <p>Eliminar Pelicula?</p>
+            <form class="form" action="/eliminar_pelicula2" method="get">
+                <input class="btn-submit" type="submit" value="Eliminar">
+                <input type="hidden" name="id_pelicula" value="<%=pelicula.id_pelicula%>">
+            </form>
+        <% } %>
+
+        
+
+            
+        <a class="link-home" href="/home">Home</a>
+    </main>
+
+    <script src="/js/error-message.js"></script>
+</body>
+</html>

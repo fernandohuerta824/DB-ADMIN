@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modificar_tribunal2</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Modificar Tribunal</h1>
+    </header>
+
+    <main class="bg-blur">
+        <div class="info" style="margin-top: 10rem;">
+            <p>Nombre: <%=gala.nombre%></p>
+            <p>Año de realizacion: <%=gala.anio_realizacion%></p>
+            <img src="./../img/<%=gala.nombre%>.jpg" alt="<%=gala.nombre%>">
+
+            <p>Nombre del tribunal: <%=participante.nombre_real%></p>
+            <img src="<%=participante.image_url%>" alt="<%=participante.nombre_real%>">
+
+        </div>
+
+        <form class="form" action="/modificar_tribunal3" method="get">
+            <fieldset class="campo">
+                <label for="nombre">Nombre del tribunal</label>
+                <input type="text" name="nombre" id="nombre" value="<%=participante.nombre_real%>">
+            </fieldset>
+            <fieldset class="campo">
+                <label for="rol">Rol</label>
+                <input type="text" name="rol" id="rol" value="<%=tribunal.rol%>">
+            </fieldset>
+
+            <input class="btn-submit" type="submit" value="Modificar">
+            <input type="hidden" name="id_gala" value="<%=gala.id_gala%>">
+    
+        </form>
+
+
+
+        <a class="link-home" href="\home">Home</a>
+
+    </main>
+
+    <script src="/js/error-message.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/app.css">
+    <title>Document</title>
+</head>
+<body class="bg-principal body-main">
+    <main class="login contenedor bg-blur">
+        <h1>Login</h1>
+        <form class="form" action="/home" method="get">
+            <fieldset class="campo">
+                <label for="username">Username: </label>
+                <input  type="text" name="u" id="username">
+            </fieldset>
+            <fieldset class="campo">
+                <label for="password">Password: </label>
+                <input type="password" name="p" id="password">
+            </fieldset>
+            
+            <input  type="submit" class="Login btn-submit" value="Ingresar">
+
+            <!-- Error message-->
+            
+            <p class="error-message">Usuario o contraseña incorrectos</p>
+        </form>
+    </main>
+
+    <script src="/js/login.js"> 
+        
+    </script>
+    
+</body>
+</html>

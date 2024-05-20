@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Tribunal</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Modificar Tribunal</h1>
+    </header>
+
+    <main class="bg-blur">
+        <form class="form" action="modificar_tribunal">
+            <fieldset class="campo">
+                <label for="nombre">Nombre de la gala</label>
+                <input type="text" name="nombre" id="nombre" required placeholder="Los Oscars" autofocus>
+            </fieldset>
+            <fieldset class="campo">
+                <label for="anio_realizacion">Año de la Gala</label>
+                <input type="number" name="anio_realizacion" id="anio_realizacion" required placeholder="2020">
+            </fieldset>
+            <input class="btn-submit" type="submit" value="Buscar">
+
+        </form>
+
+        <% if (errors.status && errors.place === "modificar_tribunal") { %>
+            <p class="error-message"><%=errors.message%></p>
+        <% } %>
+
+        <% if(gala) { %>
+            <div class="info">
+                <p>Nombre: <%=gala.nombre%></p>
+                <p>Año de realizacion: <%=gala.anio_realizacion%></p>
+                <img src="./../img/<%=gala.nombre%>.jpg" alt="<%=gala.nombre%>">
+            </div>
+            
+
+            <form class="form" action="/modificar_tribunal2" method="get">
+                <fieldset class="campo">
+                    <label for="participante">Nombre del tribunal</label>
+                    <input type="text" name="participante" id="participante" required placeholder="Martin Scorsese">
+                </fieldset>
+
+
+                <input class="btn-submit" type="submit" value="buscar">
+                <input type="hidden" name="id_gala" value="<%=gala.id_gala%>">
+            </form>
+        
+
+        <% } %>
+        
+        <a class="link-home" href="\home">Home</a>
+    </main>
+
+
+    <script src="/js/error-message.js"></script>
+</body>
+</html>

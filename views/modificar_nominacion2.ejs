@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Nominacion</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="body bg-principal" >
+    <header>
+        <h1>Modificar Nominacion</h1>
+    </header>
+
+    <main class="bg-blur">
+        <div class="info" style="margin-top: 40rem;" >
+            <div style="display: flex; justify-content: space-evenly;">
+                <div>
+                    <p>Nombre: <%= pelicula.titulo_original %></p>
+                    <img src="<%= pelicula.image_url %>" alt="<%= pelicula.titulo_original %>">
+                </div>
+                <div>
+                    <p>Nombre: <%= participante.nombre_real %></p>
+                    <img src="<%= participante.image_url %>" alt="<%= participante.nombre_real %>">
+                </div>
+
+            </div>
+            <p>Nombre: <%= gala.nombre %></p>
+            <p>Año: <%= gala.anio_realizacion %></p>
+            <img src="./../img/<%= gala.nombre %>.jpg" alt="<%= gala.nombre %>">
+        </div>
+
+
+
+        <form class="form" action="/modificar_nominacion3">
+            <fieldset class="campo">
+                <label for="nombre">Nombre de la nominacion</label>
+                <input type="text" name="nombre" id="nombre" value="<%= nominacion.nombre %>">
+            </fieldset>
+
+            <fieldset class="campo">
+                <label for="categoria">Categoria</label>
+                <input type="text" name="categoria" id="categoria" value="<%= nominacion.categoria %>">
+            </fieldset>
+
+            <fieldset class="campo">
+                <label for="ganado">Ganado</label>
+                <select name="ganado" id="ganado">
+                    <option value="" disabled selected>Seleccionar</option>
+
+                    <option value="1" <% if(nominacion.ganado == 1) { %> selected <% } %>>Si</option>
+                    <option value="0" <% if(nominacion.ganado == 0) { %> selected <% } %>>No</option>
+                </select>
+            </fieldset>
+
+            <fieldset class="campo">
+                <label for="ganador">Ganador</label>
+                <input type="text" name="ganador" id="ganador" value="<%= participante.nombre_real %>">
+            </fieldset>
+
+            <fieldset class="campo">
+                <label for="pelicula">Pelicula Ganadora</label>
+                <input type="text" name="pelicula" id="pelicula" value="<%= pelicula.titulo_original %>">
+            </fieldset>
+
+            <input type="hidden" name="id_gala" value="<%= gala.id_gala %>">
+            <input type="hidden" name="id_nominacion" value="<%= nominacion.id_nominacion %>">
+
+            <input class="btn-submit" type="submit" value="Modificar">
+
+        </form>
+
+        <a class="link-home" href="/modificar_nominacion">Volver</a>
+    </main>
+</body>
+</html>

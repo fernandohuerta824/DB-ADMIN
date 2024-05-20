@@ -1,0 +1,255 @@
+:root {
+  --fuente_principal: "Raleway", sans-serif;
+  --color-primario: #e44501;
+  --color-secundario: #f58b54;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+Modificar Actor*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-family: var(--fuente_principal);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: bold;
+  margin: 2rem 0 ;
+  color: white;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+p {
+  color: white;
+  margin: .5rem;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+
+.bg-blur {
+  backdrop-filter: blur(100px);
+}
+
+.bg-principal {
+  background: rgb(163, 37, 170);
+  background: linear-gradient(
+    90deg,
+    rgba(163, 37, 170, 1) 3%,
+    rgba(140, 134, 207, 1) 15%,
+    rgba(200, 50, 135, 1) 31%,
+    rgba(59, 64, 167, 1) 44%,
+    rgba(186, 55, 199, 1) 57%,
+    rgb(144, 43, 139) 68%,
+    rgba(106, 49, 187, 1) 78%,
+    rgba(177, 79, 153, 1) 89%,
+    rgba(50, 100, 110, 1) 100%
+  );
+  
+
+}
+
+.btn {
+  display: block;
+  padding: 1rem 2rem;
+  background-color: var(--color-primario);
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all .3s ease;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.btn:hover {
+  background-color: var(--color-secundario);
+}
+
+.btn-submit {
+  display: block;
+  padding: 1rem 2rem;
+  background-color: var(--color-primario);
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all .3s ease;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.btn-submit:hover {
+  background-color: var(--color-secundario);
+}
+
+.link-home {
+  display: block;
+  padding: 1rem 2rem;
+  background-color: #180d1b;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all .3s ease;
+  text-align: center;
+  margin-bottom: 2rem;
+
+}
+
+.link-home:hover {
+  background-color: #3b0a6c;
+}
+
+.contenedor {
+  max-width: 120rem;
+  margin: 0 auto;
+  width: 90%;
+
+}
+
+.nmt-10 {
+  margin-top: -10rem;
+}
+
+.main-form {
+  display: block;
+}
+
+
+
+/** LOGIN **/
+
+.body-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login {
+    padding: 10rem;
+}
+
+.error-message {
+  opacity: 0;
+  font-size: 2rem;
+  color:  white;
+  font-weight: 700;
+  transition: all .3s ease;
+}
+
+.body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  padding: 5rem;
+}
+
+
+.campo {
+  display: flex;
+  align-items: center;
+  width: 70rem;
+}
+
+.campo label {
+  font-size: 2rem;
+  color: white;
+  flex-basis: 20rem;
+}
+
+.campo input {
+  flex: 1;
+  padding: .5rem;
+  border: none;
+  border-radius: 1rem;
+}
+
+.campo textarea {
+  flex: 1;
+  padding: .5rem;
+  border: none;
+  border-radius: 1rem;
+  height: 10rem;
+}
+
+.campo select {
+  flex: 1;
+  padding: .5rem;
+  border: none;
+  border-radius: 1rem;
+  text-align: center;
+  font-size:  1.6rem;
+  
+}
+
+
+
+.info {
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.info img {
+  width: 25rem;
+  height: 35rem;
+  margin: 2rem auto;
+}
+
+.info h2
+, .info p {
+  text-align: center;
+}
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos Gala</title>
+    <link rel="stylesheet" href="./../css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Agregar Gala</h1>
+    </header>
+
+    <main>
+        <form class="form" action="/insertar_gala">
+            <fieldset class="campo">´
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" required placeholder="Los Oscars">
+            </fieldset>
+
+            <fieldset class="campo">
+                <label for="organizador">Organizador</label>
+                <input type="text" name="organizador" id="organizador" required placeholder="La Academia de Artes y Cine Americano">
+            </fieldset>
+
+            <fieldset class="campo">
+                <label for="categoria">Categoria</label>
+                <input type="text" name="categoria" id="categoria" required placeholder="Gala">
+            </fieldset>
+
+            <fieldset class="campo">
+                <label for="lugar">Lugar</label>
+                <input type="text" name="lugar" id="lugar" required placeholder="Los Angeles">
+            </fieldset>
+
+            <fieldset class="campo">             
+                <label for="fecha">Año de realizacion</label>
+                <input type="number" name="fecha" id="fecha" required placeholder="2021">
+            </fieldset >
+           
+            <input class="btn-submit" type="submit" value="Agregar Gala">
+
+            <% if (errors.status && errors.place === "datos_gala") { %>
+                <p class="error-message"><%=errors.message%></p>
+            <% } %>
+        </form>
+
+        <a class="link-home" href="\home">Home</a>
+    </main>
+
+    <script src="../js/error-message.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertar Nominacion</title>
+    <link rel="stylesheet" href="./../css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Ingresar Nominacion</h1>
+    </header>
+
+    <main class="bg-blur">
+        <div class="info">
+            <h2><%= gala.nombre%></h2>
+            <p class="anio_realizacion">Año de realizacion: <%= gala.anio_realizacion%></p>
+            <img src="img/<%= gala.nombre%>.jpg" alt="<%= gala.nombre%>"> <!-- "img/<%= gala.nombre%>.jpg" --> <!-- "img/<%= gala.nombre%>.jpg" -->
+
+        </div>
+            <h2>Datos de la nominacion</h2>
+        <form action="/insertar_nominacion" method="get">
+            <fieldset class="campo">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" required placeholder="Mejor Pelicula">
+            </fieldset>
+
+            <fieldset class="campo">
+                <label for="categoria">Categoria</label>
+                <input type="text" name="categoria" id="categoria" required placeholder="Mejor Pelicula">
+            </fieldset>
+
+            <fieldset class="campo"> 
+                <label for="ganado">Ganado</label>
+                <select name="ganado" id="ganado">
+                    <option value="" selected disabled>-- Seleccione la opcion --</option>
+                    <option value="1">Si</option>
+                    <option value="0">No</option>
+                </select>
+            </fieldset>
+
+            
+            <fieldset class="campo">
+                <label for="participante">Nombre del ganador</label>
+                <input type="text" name="participante" id="participante" required placeholder="Leonardo DiCaprio">
+            </fieldset>
+            
+            <fieldset class="campo">
+                <label for="pelicula">Nombre de la pelicula</label>
+                <input type="text" name="pelicula" id="pelicula" required placeholder="Titanic">
+            </fieldset>
+            
+
+            <input class="btn-submit" type="submit" value="Agregar Nominacion">
+
+            <input type="hidden" name="id_gala" value="<%=gala.id_gala%>">
+
+            <% if (errors.status && errors.place === "datos_nominaciones2") { %>
+                <p><%=errors.message%></p>
+            <% } %>
+        </form>
+
+        <a class="link-home" href="\home">Home</a>
+    </main>
+    
+    <script src="../js/error-message.js"></script>
+</body>
+</html>

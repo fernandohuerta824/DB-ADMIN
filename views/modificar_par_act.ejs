@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Participacion Actor</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Modificar Participacion Actor</h1>
+    </header>
+
+    <main class="bg-blur">
+        <form class="form" action="/modificar_par_act">
+            <fieldset class="campo">
+                <label for="nombre_actor">Nombre del Actor</label>
+                <input type="text" name="nombre_actor" id="nombre_actor" required>
+            </fieldset>
+
+            <fieldset class="campo">
+                <label for="nombre_pelicula">Nombre de la Pelicula</label>
+                <input type="text" name="nombre_pelicula" id="nombre_pelicula" required>
+            </fieldset>
+
+            <input class="btn-submit" type="submit" value="Buscar">
+        </form>
+
+
+        <% if (errors.status && errors.place === "modificar_par_act") { %>
+            <p class="error-message"><%=errors.message%></p>
+        <% } %>
+        <% if(participacion_actor) { %>
+            <div class="info">
+               
+                    <p><span style="font-weight: 700;"> Nombre del Actor:</span> <%=actor.nombre_actor%></p>
+                    <img src="<%=actor.image_url%>" alt="<%=actor.nombre_actor%>">
+                
+
+               
+                    <p><span style="font-weight: 700;"> Nombre de la Pelicula:</span> <%=pelicula.titulo_original%></p>
+                    <img src="<%=pelicula.image_url%>" alt="<%=pelicula.nombre_real%>">
+               
+                
+            </div>
+            
+
+            <form class="form" action="/modificar_par_act2">
+                <fieldset class="campo">
+                    <label for="pelicula">Pelicula</label>
+                    <input type="text" name="pelicula" id="pelicula" value="<%=pelicula.titulo_original%>">
+                </fieldset>
+
+                <fieldset class="campo">
+                    <label for="rol">Rol</label>
+                    <input type="text" name="rol" id="rol" value="<%=participacion_actor.rol%>">
+                </fieldset>
+
+                <input class="btn-submit" type="submit" name="submit" id="submit" value="Modificar">
+                <input type="hidden" name="id_participacion_actor" value="<%=participacion_actor.id_participacion_actor%>">
+                <input type="hidden" name="id_actor" id="id_actor" value="<%=actor.id_actor%>">
+
+
+                
+            </form>
+        <% } %>
+
+        <a class="link-home" href="\home">Home</a>     
+    </main>
+
+    <script src="/js/error-message.js"></script>
+</body>
+</html>

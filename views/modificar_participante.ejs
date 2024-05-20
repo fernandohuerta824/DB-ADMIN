@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar participante</title>
+    <link rel="stylesheet" href="./../css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+
+        <h1>Modificar participante</h1>
+    </header>
+
+    <main class="bg-blur">
+        <h2>Ingres el particpante a modificar</h2>
+
+        <form class="form main-form" action="/modificar_participante">
+            <fieldset class="campo">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" required>
+            </fieldset>
+            
+            <input class="btn-submit" type="submit" value="Buscar">
+        
+        </form>
+
+        <% if(participante) { %>
+            
+            <div class="info nmt-10">
+                <h2><%=participante.nombre_artistico %></h2>
+                <img src="<%=participante.image_url%>" alt="<%=participante.nombre_real%>">
+            </div>
+            
+
+            <form class="form" action="/modificar_participante2" method="get">
+                <fieldset class="campo">
+                    <label for="nombre_artistico">Nombre Artistico: </label>
+                    <input type="text" name="nombre_artistico" id="nombre_artistico" value="<%=participante.nombre_artistico%>">
+                </fieldset>
+
+                <fieldset class="campo">
+                    <label for="fecha_nacimiento">Fecha de Nacimiento: </label>
+                    <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" value="<%=formatearFecha(participante.fecha_nacimiento)%>">
+                </fieldset>
+
+                <fieldset class="campo">
+                    <label for="estado">Estado: </label>
+                    <input type="text" name="estado" id="estado" value="<%=participante.estado%>">
+                </fieldset>
+
+                <fieldset class="campo">
+                    <label for="sexo">Sexo</label>
+                    <input type="text" name="sexo" id="sexo" value="<%=participante.sexo%>">
+                </fieldset>
+
+                <fieldset class="campo">
+                    <label for="imagen_url">Imagen URL: </label>
+                    <input type="text" name="image_url" id="image_url" value="<%=participante.image_url%>">
+                </fieldset>
+
+                <input type="hidden" name="id_participante" 
+                value="<%=participante.id_participante%>">
+                <input type="hidden" name="nombre_real" id="nombre_real" value="<%=participante.nombre_real%>">
+                <input class="btn-submit" type="submit" value="Modificar">
+
+                
+            </form>
+        <% }  %>
+
+        <% if (errors.status && errors.place === "modificar_participante") { %>
+            <p class="error-message"><%=errors.message%></p>
+        <% } %>
+            
+        <a class="link-home" href="\home">Home</a>
+    </main>
+
+    <script src="./../js/error-message.js"></script>
+
+</body>
+</html>

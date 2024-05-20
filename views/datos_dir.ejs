@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos del director</title>
+    <link rel="stylesheet" href="./../css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Agregar Director</h1>
+    </header>
+
+    <main  class="menu bg-blur">
+        <form class="form" action="/datos_dir2">
+            <fieldset class="campo">
+                <label for="nombre">Nombre del participante</label>
+                <input type="text" name="nombre" id="nombre" required>
+            </fieldset>
+            <input class="btn-submit" type="submit" value="Buscar">
+
+            <% if (errors.status && errors.place === "datos_dir") { %>
+                <p class="error-message"><%=errors.message%></p>
+            <% } %>
+
+        </form>
+        <a class="link-home" href="\home">Home</a>
+    </main>
+
+    <script src="../js/error-message.js"></script> 
+</body>
+</html>

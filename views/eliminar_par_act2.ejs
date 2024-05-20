@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elimnar participacion de un actor</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Eliminar participacion de un actor</h1>
+    </header>
+
+    <main class="bg-blur">
+        <% if(actor) { %>
+            <div class="info">
+                <img src="<%=pelicula.image_url%>" alt="<%=pelicula.titulo_original%>">
+                <p>Titulo: <%=pelicula.titulo_original%></p>
+
+                <img src="<%=actor.image_url%>" alt="<%=actor.nombre_actor%>">
+                <p>Nombre: <%=actor.nombre_actor%></p>
+            </div>
+
+
+
+            <p>Eliminar participacion?</p>
+
+            <form action="/eliminar_par_act3" method="get">
+                <input class="btn-submit" type="submit" value="Eliminar">
+                <input type="hidden" name="id_pelicula" value="<%=pelicula.id_pelicula%>">
+                <input type="hidden" name="id_actor" value="<%=actor.id_actor%>">
+                <input type="hidden" name="id_participante" value="<%=id_participante%>">
+            </form>
+        <% } else { %>
+            <p class="error-message">El actor no existe</p>
+        <% } %>
+
+        <a class="link-home" href="\eliminar_par_act">Regresar</a>
+
+    </main>
+
+    <script src="/js/error-message.js"></script>
+</body>
+</html>

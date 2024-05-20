@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Actor</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Eliminar Actor</h1>
+    </header>
+
+    <main>
+        <form  action="/eliminar_actor">
+            <fieldset class="campo">
+                <label for="nombre">Nombre del actor</label>
+                <input type="text" name="nombre" id="nombre" required placeholder="Al Pacino">
+            </fieldset>
+            <input class="btn-submit" type="submit" value="Buscar">
+        </form>
+
+        <% if (errors.status && errors.place === "eliminar_actor") { %>
+            <p class="error-message"><%=errors.message%></p>
+        <% } %>
+
+        <% if(actor) { %>
+            <div class="info">
+                <img src="<%=actor.image_url%>" alt="<%=actor.nombre_real%>">
+                <p>Nombre: <%=actor.nombre_actor%></p>    
+            </div>
+
+            <p>Eliminar Actor?</p>
+            <form action="/eliminar_actor2" method="get">
+                <input class="btn-submit" type="submit" value="Eliminar">
+                <input type="hidden" name="id_actor" value="<%=actor.id_actor%>">
+                
+            </form>
+        <% } %>
+        <a class="link-home" href="\home">Home</a>
+    </main>
+
+    <script src="/js/error-message.js"></script>
+</body>
+</html>

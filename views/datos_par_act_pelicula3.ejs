@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participacion</title>
+    <link rel="stylesheet" href="./../css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Ingresar Participacion</h1>
+    </header>
+
+    <main class="bg-blur">
+        <div class="info">
+            <h2><%= movie.titulo_original%></h2>
+            <img src="<%= movie.image_url%>" alt="<%= movie.titulo_original%>">
+        </div>
+
+       
+        <div class="info">
+            <h2><%= actor.nombre_actor %></h2>
+            <img src="<%= actor.image_url %>" alt="<%= actor.nombre_actor %>">
+        </div>
+
+        <form class="form" action="/insertar_par_actor">
+            <fieldset class="campo">
+                <label for="rol">Rol</label>
+                <input type="text" name="rol" id="rol" required>
+            </fieldset>
+            <input class="btn-submit" type="submit" value="Agregar Participacion">
+            <input type="hidden" name="id_pelicula" value="<%= movie.id_pelicula%>">
+            <input type="hidden" name="id_actor" value="<%= actor.id_actor %>">
+        </form>
+            
+        <a class="link-home" href="\home">Home</a>
+    </main>
+</body>
+</html>

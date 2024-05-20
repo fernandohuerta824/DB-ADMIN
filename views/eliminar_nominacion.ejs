@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar nominacion</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="body bg-principal">
+    <header>
+        <h1>Eliminar nominacion</h1>
+    </header>
+
+    <main class="bg-blur">
+        <h2>Ingrese la informacion de la gala</h2>
+        <form action="/eliminar_nominacion">
+            <fieldset class="campo">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" required placeholder="Los Oscars">
+            </fieldset>
+
+            <fieldset class="campo">
+                <label for="anio_realizacion">Año de realizacion</label>
+                <input type="number" name="anio_realizacion" id="anio_realizacion" required placeholder="2020">
+            </fieldset>
+
+            <input class="btn-submit" type="submit" value="Buscar">
+        </form>
+
+        <% if (errors.status && errors.place === "eliminar_nominacion") { %>
+            <p class="error-message"><%=errors.message%></p>
+        <% } %>
+
+        <% if(gala) { %>
+            <div class="info">
+                <p>Nombre: <%=gala.nombre%></p>
+                <p>Año de realizacion: <%=gala.anio_realizacion%></p>
+                <img src="./../img/<%=gala.nombre%>.jpg" alt="<%=gala.nombre%>">
+            </div>
+
+            <h2>Ingrese la informacion de la nominacion</h2>
+            <form action="/eliminar_nominacion2" method="get">
+
+                <fieldset class="campo">
+                    <label for="nombre_participante">Nombre del nominado</label>
+                    <input type="text" name="nombre_participante" id="nombre_participante" required placeholder="Leonardo DiCaprio">
+                </fieldset>
+
+                <fieldset class="campo">
+                    <label for="pelicula">Pelicula nominada</label>
+                    <input type="text" name="pelicula" id="pelicula" required placeholder="Titanic">
+                </fieldset>
+
+                <fieldset class="campo">
+                    <label for="categoria">Categoria del premio</label>
+                    <input type="text" name="categoria" id="categoria" required placeholder="Mejor actor">
+                </fieldset>
+
+                <input class="btn-submit" type="submit" value="Eliminar">
+                <input type="hidden" name="id_gala" value="<%=gala.id_gala%>">
+
+            </form>
+        <% } %>
+               
+   
+            
+        <a class="link-home" href="/home">Home</a>
+    </main>
+
+    <script src="/js/error-message.js"></script>
+</body>
+</html>
